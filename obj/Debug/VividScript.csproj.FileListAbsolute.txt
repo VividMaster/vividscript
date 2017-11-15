@@ -1,0 +1,6 @@
+C:\Proj\Vivid3D\Vividscript\VividScript\bin\Debug\VividScript.dll
+C:\Proj\Vivid3D\Vividscript\VividScript\bin\Debug\VividScript.pdb
+C:\Proj\Vivid3D\Vividscript\VividScript\obj\Debug\VividScript.csprojResolveAssemblyReference.cache
+C:\Proj\Vivid3D\Vividscript\VividScript\obj\Debug\VividScript.csproj.CoreCompileInputs.cache
+C:\Proj\Vivid3D\Vividscript\VividScript\obj\Debug\VividScript.dll
+C:\Proj\Vivid3D\Vividscript\VividScript\obj\Debug\VividScript.pdb
