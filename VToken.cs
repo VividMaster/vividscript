@@ -8,12 +8,13 @@ namespace VividScript
 {
     public enum TokenClass
     {
-        Type,Value,Statement,Define,Op
+        Type,Value,Statement,Define,Op,Flow,Id,Sep,Scope,Array,New,Bool,Assign
     }
     public enum Token
     {
         If,Else,End,Module,Method,Func,Equal,Plus,Minus,Multi,Div,Comma,Peroid,Colon,SemiColon,StringMark,Int,Short,Byte,Long,Float,Double,String,
-        Var,Transient,State,Auto,Link,Pow
+        Var,Transient,State,Auto,Link,Pow,ElseIf,For,Next,While,Id,LeftPara,RightPara,LeftArray,RightArray,New,Bool,True,False,Greater,Lesser,Not,
+        GreatEqual,LessEqual
     }
     public class VToken
     {
@@ -27,11 +28,20 @@ namespace VividScript
         public long LVal;
         public float FVal;
         public double DVal;
+        public VToken Clone()
+        {
+            var nt = new VToken(Class, Token, Text);
+            return nt;
+        }
         public VToken(TokenClass cls,Token tok,string txt)
         {
             Class = cls;
             Token = tok;
             Text = txt;
+        }
+        public override string ToString()
+        {
+            return "TokenClass:" + Class.ToString() + " TokenType:" + Token.ToString() + " Text:" + Text;
         }
 
     }
@@ -40,12 +50,19 @@ namespace VividScript
         public List<VToken> Tokes = new List<VToken>();
         public int Pos = 0;
         public int Len = 0;
+        public void Add(VToken t)
+        {
+            Tokes.Add(t);
+            Len++;
+        }
         public VToken Get()
         {
+            if (Pos >= Tokes.Count) return null;
             return Tokes[Pos];
         }
         public VToken GetNext()
         {
+            if (Pos>=Len) return null;
             return Tokes[Pos++];
         }
         public VToken Find(Token t)
