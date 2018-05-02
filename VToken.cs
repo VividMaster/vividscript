@@ -14,7 +14,7 @@ namespace VividScript
     {
         If,Else,End,Module,Method,Func,Equal,Plus,Minus,Multi,Div,Comma,Peroid,Colon,SemiColon,StringMark,Int,Short,Byte,Long,Float,Double,String,
         Var,Transient,State,Auto,Link,Pow,ElseIf,For,Next,While,Id,LeftPara,RightPara,LeftArray,RightArray,New,Bool,True,False,Greater,Lesser,Not,
-        GreatEqual,LessEqual
+        GreatEqual,LessEqual,EndLine
     }
     public class VToken
     {
@@ -47,7 +47,20 @@ namespace VividScript
     }
     public class VTokenStream
     {
-        public List<VToken> Tokes = new List<VToken>();
+        public List<VToken> Tokes
+        {
+            get
+            {
+                return _Toks;
+            }
+            set
+            {
+                _Toks = value;
+                Len = Tokes.Count();
+                Pos = 0;
+            }
+        }
+        private List<VToken> _Toks = new List<VToken>();
         public int Pos = 0;
         public int Len = 0;
         public void Add(VToken t)

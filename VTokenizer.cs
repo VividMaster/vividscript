@@ -76,6 +76,7 @@ namespace VividScript
             Keys.Add("module");
             Keys.Add("method");
             Keys.Add("function");
+            AddConv("end", TokenClass.Flow, Token.End);
             AddConv("if", TokenClass.Flow, Token.If);
             AddConv("elseif", TokenClass.Flow, Token.ElseIf);
             AddConv("else", TokenClass.Flow, Token.Else);
@@ -85,6 +86,7 @@ namespace VividScript
             AddConv("module", TokenClass.Define, Token.Module);
             AddConv("method", TokenClass.Define, Token.Method);
             AddConv("function", TokenClass.Define, Token.Func);
+            AddConv("func", TokenClass.Define, Token.Func);
 
             Keys.Add(",");
             AddConv(",", TokenClass.Sep, Token.Comma);
@@ -190,7 +192,7 @@ namespace VividScript
                 {
                     cur = cur + se.ToString();
                 }
-                Console.WriteLine("Cur:" + cur);
+            //    Console.WriteLine("Cur:" + cur);
                 
 
                 if (stringOn == false)
@@ -216,7 +218,7 @@ namespace VividScript
                             stringOn = false;
                             ts.Add(nt);
                             cur = "";
-                            Console.WriteLine("Yep");
+              //              Console.WriteLine("Yep");
                         }
                     }
                 }
@@ -237,7 +239,7 @@ namespace VividScript
 
                 if (t2 != null)
                 {
-                    Console.WriteLine("t2" + t2.Text);
+                //    Console.WriteLine("t2" + t2.Text);
                     switch (t2.Token)
                     {
                         case Token.Greater:
@@ -307,14 +309,14 @@ namespace VividScript
                             break;
                         case Token.LeftPara:
                         case Token.RightPara:
-                            Console.WriteLine("Cur===" + cur + "|");
+                  //          Console.WriteLine("Cur===" + cur + "|");
                             cur = cur.Substring(0, cur.Length - 1);
                             tt = new VToken(TokenClass.Id, Token.Id, cur);
                             tt.Class = TokenClass.Id;
                             ts.Add(tt);
                             var tok2 = Token.LeftPara;
                             if (t2.Token == Token.RightPara) tok2 = Token.RightPara;
-                            tt = new VToken(TokenClass.Array, tok2, t2.Text);
+                            tt = new VToken(TokenClass.Scope, tok2, t2.Text);
                             ts.Add(tt);
                             tt = null;
                             cur = "";
@@ -392,6 +394,11 @@ namespace VividScript
                 if(at.Text ==" " || at.Text == "")
                 {
                     continue;
+                }
+                if(at.Text=="end" || at.Text == "End")
+                {
+                    at.Token = Token.End;
+                    at.Class = TokenClass.Flow;
                 }
                 if (at.Class == TokenClass.Id)
                 {

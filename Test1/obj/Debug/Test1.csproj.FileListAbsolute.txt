@@ -1,0 +1,10 @@
+D:\Git\VividScript\vividscript\Test1\bin\Debug\Test1.exe.config
+D:\Git\VividScript\vividscript\Test1\bin\Debug\Test1.exe
+D:\Git\VividScript\vividscript\Test1\bin\Debug\Test1.pdb
+D:\Git\VividScript\vividscript\Test1\bin\Debug\VividScript.dll
+D:\Git\VividScript\vividscript\Test1\bin\Debug\VividScript.pdb
+D:\Git\VividScript\vividscript\Test1\obj\Debug\Test1.csprojResolveAssemblyReference.cache
+D:\Git\VividScript\vividscript\Test1\obj\Debug\Test1.csproj.CoreCompileInputs.cache
+D:\Git\VividScript\vividscript\Test1\obj\Debug\Test1.csproj.CopyComplete
+D:\Git\VividScript\vividscript\Test1\obj\Debug\Test1.exe
+D:\Git\VividScript\vividscript\Test1\obj\Debug\Test1.pdb

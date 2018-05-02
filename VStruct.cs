@@ -21,7 +21,7 @@ namespace VividScript
         public long RunCount = 0;
         public ParseStructToken PreParser = null;
         public ParseStructToken Parser = null;
-      
+        public bool Done = false;
         public VTokenStream TokStream = null;
         public VStruct(VTokenStream toks)
         {
@@ -50,7 +50,11 @@ namespace VividScript
             if (PreParser != null) PreParser(TokStream.GetNext());
             while (TokStream.Pos < TokStream.Len)
             {
+
+                var nt = PeekNext();
+             //   Console.WriteLine("VS:" + nt.Text + " T:" + nt.Token);
                 Parser(TokStream.GetNext());
+                if (Done) return;
             }
 
         }
